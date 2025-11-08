@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/next"
+    },
+    {
+      "src": "primary-backend/src/index.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "processor/src/index.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "worker/src/index.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/v1/.*",
+      "dest": "/primary-backend/src/index.ts"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/$1"
+    }
+  ]
+}

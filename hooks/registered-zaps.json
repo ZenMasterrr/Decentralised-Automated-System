@@ -1,0 +1,274 @@
+{
+  "zaps": [
+    {
+      "id": "zap-1762503088298-xtmex85fl",
+      "trigger": {
+        "type": "google_workflow",
+        "workflow": {
+          "name": "Google",
+          "steps": [
+            {
+              "id": "j8n053ox2",
+              "type": "trigger",
+              "title": "When an email arrives in Gmail",
+              "config": {
+                "type": "gmail",
+                "criteria": "subject",
+                "value": "Hi",
+                "label": "INBOX"
+              }
+            },
+            {
+              "id": "0na731mna",
+              "type": "sheets",
+              "title": "Add row to Google Sheet",
+              "config": {
+                "spreadsheetId": "1wMp2-Emgb2Pakbkz8G1REcl9G732XP9UqerGAC2rkVA",
+                "sheetName": "Sheet1",
+                "range": "A1",
+                "append": true
+              }
+            },
+            {
+              "id": "5vhp2m1yb",
+              "type": "calendar",
+              "title": "Create Google Calendar event",
+              "config": {
+                "eventTitle": "mrt",
+                "eventDescription": "we",
+                "dateField": "2025-11-07",
+                "timeField": "13:50",
+                "duration": 60,
+                "sendNotifications": true
+              }
+            },
+            {
+              "id": "o2i5wdkey",
+              "type": "email",
+              "title": "Send confirmation email",
+              "config": {
+                "to": "pandeyharshit673@gmail.com",
+                "subject": "Event Reminder",
+                "body": "This is a reminder for your upcoming event."
+              }
+            }
+          ]
+        }
+      },
+      "actions": [
+        {
+          "type": "sheets",
+          "config": {
+            "spreadsheetId": "1wMp2-Emgb2Pakbkz8G1REcl9G732XP9UqerGAC2rkVA",
+            "sheetName": "Sheet1",
+            "range": "A1",
+            "append": true
+          }
+        },
+        {
+          "type": "calendar",
+          "config": {
+            "eventTitle": "mrt",
+            "eventDescription": "we",
+            "dateField": "2025-11-07",
+            "timeField": "13:50",
+            "duration": 60,
+            "sendNotifications": true
+          }
+        },
+        {
+          "type": "email",
+          "config": {
+            "to": "pandeyharshit673@gmail.com",
+            "subject": "Event Reminder",
+            "body": "This is a reminder for your upcoming event."
+          }
+        }
+      ],
+      "status": "active",
+      "registeredAt": "2025-11-07T08:39:41.564Z"
+    },
+    {
+      "id": "zap-1762552773337-x6df6h4pc",
+      "trigger": {
+        "type": "google_workflow",
+        "workflow": {
+          "name": "google",
+          "steps": [
+            {
+              "id": "63uc9hf5y",
+              "type": "trigger",
+              "title": "When an email arrives in Gmail",
+              "config": {
+                "type": "gmail",
+                "criteria": "subject",
+                "value": "hel",
+                "label": "INBOX"
+              }
+            },
+            {
+              "id": "iu1vy3xgs",
+              "type": "sheets",
+              "title": "Add row to Google Sheet",
+              "config": {
+                "spreadsheetId": "sdfsdf",
+                "sheetName": "Sheet1",
+                "range": "A1",
+                "append": true
+              }
+            },
+            {
+              "id": "tun8qhsbw",
+              "type": "calendar",
+              "title": "Create Google Calendar event",
+              "config": {
+                "eventTitle": "",
+                "eventDescription": "",
+                "dateField": "date",
+                "timeField": "time",
+                "duration": 60,
+                "sendNotifications": true
+              }
+            },
+            {
+              "id": "lfd3okd1a",
+              "type": "email",
+              "title": "Send confirmation email",
+              "config": {
+                "to": "",
+                "subject": "Event Reminder",
+                "body": "This is a reminder for your upcoming event."
+              }
+            }
+          ]
+        }
+      },
+      "actions": [
+        {
+          "type": "sheets",
+          "config": {
+            "spreadsheetId": "sdfsdf",
+            "sheetName": "Sheet1",
+            "range": "A1",
+            "append": true
+          }
+        },
+        {
+          "type": "calendar",
+          "config": {
+            "eventTitle": "",
+            "eventDescription": "",
+            "dateField": "date",
+            "timeField": "time",
+            "duration": 60,
+            "sendNotifications": true
+          }
+        },
+        {
+          "type": "email",
+          "config": {
+            "to": "",
+            "subject": "Event Reminder",
+            "body": "This is a reminder for your upcoming event."
+          }
+        }
+      ],
+      "status": "active",
+      "registeredAt": "2025-11-07T21:59:33.663Z"
+    },
+    {
+      "id": "zap-1762552775378-yvvhut8yg",
+      "trigger": {
+        "id": "google_workflow",
+        "config": {
+          "type": "google_workflow",
+          "workflow": {
+            "name": "google",
+            "steps": [
+              {
+                "id": "63uc9hf5y",
+                "type": "trigger",
+                "title": "When an email arrives in Gmail",
+                "config": {
+                  "type": "gmail",
+                  "criteria": "subject",
+                  "value": "hel",
+                  "label": "INBOX"
+                }
+              },
+              {
+                "id": "iu1vy3xgs",
+                "type": "sheets",
+                "title": "Add row to Google Sheet",
+                "config": {
+                  "spreadsheetId": "sdfsdf",
+                  "sheetName": "Sheet1",
+                  "range": "A1",
+                  "append": true
+                }
+              },
+              {
+                "id": "tun8qhsbw",
+                "type": "calendar",
+                "title": "Create Google Calendar event",
+                "config": {
+                  "eventTitle": "",
+                  "eventDescription": "",
+                  "dateField": "date",
+                  "timeField": "time",
+                  "duration": 60,
+                  "sendNotifications": true
+                }
+              },
+              {
+                "id": "lfd3okd1a",
+                "type": "email",
+                "title": "Send confirmation email",
+                "config": {
+                  "to": "",
+                  "subject": "Event Reminder",
+                  "body": "This is a reminder for your upcoming event."
+                }
+              }
+            ]
+          }
+        }
+      },
+      "actions": [
+        {
+          "id": "sheets",
+          "type": "sheets",
+          "config": {
+            "spreadsheetId": "sdfsdf",
+            "sheetName": "Sheet1",
+            "range": "A1",
+            "append": true
+          }
+        },
+        {
+          "id": "calendar",
+          "type": "calendar",
+          "config": {
+            "eventTitle": "",
+            "eventDescription": "",
+            "dateField": "date",
+            "timeField": "time",
+            "duration": 60,
+            "sendNotifications": true
+          }
+        },
+        {
+          "id": "email",
+          "type": "email",
+          "config": {
+            "to": "",
+            "subject": "Event Reminder",
+            "body": "This is a reminder for your upcoming event."
+          }
+        }
+      ],
+      "status": "pending",
+      "createdAt": "2025-11-07T21:59:35.378Z"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                  Int       @id @default(autoincrement())
+  name                String?
+  email               String?   @unique
+  password            String?
+  address             String    @unique
+  metadata            Json      @default("{}")
+  googleAccessToken   String?
+  googleRefreshToken  String?
+  googleTokenExpiry   DateTime?
+  zaps                Zap[]
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+model Zap {
+  id          String    @id @default(uuid())
+  name        String
+  userId      Int
+  status      String    @default("active")
+  trigger     Trigger?
+  actions     Action[]
+  zapRuns     ZapRun[]
+  user        User      @relation(fields: [userId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([userId])
+}
+
+model Trigger {
+  id        String   @id @default(uuid())
+  zapId     String   @unique
+  type      String
+  metadata  Json     @default("{}")
+  zap       Zap      @relation(fields: [zapId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Action {
+  id           String      @id @default(uuid())
+  zapId        String
+  type         String
+  metadata     Json        @default("{}")
+  sortingOrder Int         @default(0)
+  zap          Zap         @relation(fields: [zapId], references: [id])
+  actionRuns   ActionRun[]
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  @@index([zapId])
+}
+
+model ZapRun {
+  id           String        @id @default(uuid())
+  zapId        String
+  status       String        @default("pending")
+  metadata     Json          @default("{}")
+  zap          Zap           @relation(fields: [zapId], references: [id])
+  actionRuns   ActionRun[]
+  zapRunOutbox ZapRunOutbox?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@index([zapId])
+}
+
+model AvailableTrigger {
+  id          String   @id @default(uuid())
+  type        String   @unique
+  name        String
+  description String?
+  parameters  Json     @default("{}")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model AvailableAction {
+  id          String   @id @default(uuid())
+  type        String   @unique
+  name        String
+  description String?
+  parameters  Json     @default("{}")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ActionRun {
+  id        String   @id @default(uuid())
+  actionId  String
+  zapRunId  String
+  status    String   @default("pending")
+  metadata  Json     @default("{}")
+  action    Action   @relation(fields: [actionId], references: [id])
+  zapRun    ZapRun   @relation(fields: [zapRunId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([actionId])
+  @@index([zapRunId])
+}
+
+model ZapRunOutbox {
+  id          String   @id @default(uuid())
+  zapRunId    String   @unique
+  zapRun      ZapRun   @relation(fields: [zapRunId], references: [id])
+  processed   Boolean  @default(false)
+  processedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

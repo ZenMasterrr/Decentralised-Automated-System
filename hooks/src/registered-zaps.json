@@ -1,0 +1,411 @@
+{
+  "zaps": [
+    {
+      "id": "zap-1762498585166-kvrn0bzip",
+      "trigger": {
+        "id": "google_workflow",
+        "config": {
+          "type": "google_workflow",
+          "workflow": {
+            "name": "Google Dumb",
+            "steps": [
+              {
+                "id": "33awpplpo",
+                "type": "trigger",
+                "title": "When an email arrives in Gmail",
+                "config": {
+                  "type": "gmail",
+                  "criteria": "subject",
+                  "value": "Hi",
+                  "label": "INBOX"
+                }
+              },
+              {
+                "id": "029wpd7x7",
+                "type": "sheets",
+                "title": "Add row to Google Sheet",
+                "config": {
+                  "spreadsheetId": "1wMp2-Emgb2Pakbkz8G1REcl9G732XP9UqerGAC2rkVA",
+                  "sheetName": "Sheet1",
+                  "range": "A1",
+                  "append": true
+                }
+              },
+              {
+                "id": "bh4yqy7pz",
+                "type": "calendar",
+                "title": "Create Google Calendar event",
+                "config": {
+                  "eventTitle": "{email.body}",
+                  "eventDescription": "Event details",
+                  "dateField": "2025-11-7",
+                  "timeField": "12:35",
+                  "duration": 60,
+                  "sendNotifications": true
+                }
+              },
+              {
+                "id": "s9fh4iy70",
+                "type": "email",
+                "title": "Send confirmation email",
+                "config": {
+                  "to": "pandeyharshit673@gmail.com",
+                  "subject": "Event Reminder",
+                  "body": "This is a reminder for your upcoming event."
+                }
+              }
+            ]
+          }
+        }
+      },
+      "actions": [
+        {
+          "id": "sheets",
+          "type": "sheets",
+          "config": {
+            "spreadsheetId": "1wMp2-Emgb2Pakbkz8G1REcl9G732XP9UqerGAC2rkVA",
+            "sheetName": "Sheet1",
+            "range": "A1",
+            "append": true
+          }
+        },
+        {
+          "id": "calendar",
+          "type": "calendar",
+          "config": {
+            "eventTitle": "{email.body}",
+            "eventDescription": "Event details",
+            "dateField": "2025-11-7",
+            "timeField": "12:35",
+            "duration": 60,
+            "sendNotifications": true
+          }
+        },
+        {
+          "id": "email",
+          "type": "email",
+          "config": {
+            "to": "pandeyharshit673@gmail.com",
+            "subject": "Event Reminder",
+            "body": "This is a reminder for your upcoming event."
+          }
+        }
+      ],
+      "status": "pending",
+      "createdAt": "2025-11-07T06:56:25.167Z"
+    },
+    {
+      "id": "zap-1762499542872-gal4uba49",
+      "trigger": {
+        "id": "google_workflow",
+        "config": {
+          "type": "google_workflow",
+          "workflow": {
+            "name": "Google Smart",
+            "steps": [
+              {
+                "id": "e5vvnk0y0",
+                "type": "trigger",
+                "title": "When an email arrives in Gmail",
+                "config": {
+                  "type": "gmail",
+                  "criteria": "subject",
+                  "value": "Hi",
+                  "label": "INBOX"
+                }
+              },
+              {
+                "id": "rr4gpctao",
+                "type": "sheets",
+                "title": "Add row to Google Sheet",
+                "config": {
+                  "spreadsheetId": "1wMp2-Emgb2Pakbkz8G1REcl9G732XP9UqerGAC2rkVA",
+                  "sheetName": "Sheet1",
+                  "range": "A1",
+                  "append": true
+                }
+              },
+              {
+                "id": "dsw4h33ah",
+                "type": "calendar",
+                "title": "Create Google Calendar event",
+                "config": {
+                  "eventTitle": "Meeting",
+                  "eventDescription": "email.body",
+                  "dateField": "2025-11-07",
+                  "timeField": "12:45",
+                  "duration": 60,
+                  "sendNotifications": true
+                }
+              },
+              {
+                "id": "9f716u8o7",
+                "type": "email",
+                "title": "Send confirmation email",
+                "config": {
+                  "to": "pandeyharshit673@gmail.com",
+                  "subject": "Event Reminder",
+                  "body": "This is a reminder for your upcoming event."
+                }
+              }
+            ]
+          }
+        }
+      },
+      "actions": [
+        {
+          "id": "sheets",
+          "type": "sheets",
+          "config": {
+            "spreadsheetId": "1wMp2-Emgb2Pakbkz8G1REcl9G732XP9UqerGAC2rkVA",
+            "sheetName": "Sheet1",
+            "range": "A1",
+            "append": true
+          }
+        },
+        {
+          "id": "calendar",
+          "type": "calendar",
+          "config": {
+            "eventTitle": "Meeting",
+            "eventDescription": "email.body",
+            "dateField": "2025-11-07",
+            "timeField": "12:45",
+            "duration": 60,
+            "sendNotifications": true
+          }
+        },
+        {
+          "id": "email",
+          "type": "email",
+          "config": {
+            "to": "pandeyharshit673@gmail.com",
+            "subject": "Event Reminder",
+            "body": "This is a reminder for your upcoming event."
+          }
+        }
+      ],
+      "status": "pending",
+      "createdAt": "2025-11-07T07:12:22.873Z"
+    },
+    {
+      "id": "zap-1762280793117-4im2xj8df",
+      "trigger": {
+        "type": "price_above",
+        "price": 19.97,
+        "token": "WETH",
+        "chain": "ethereum"
+      },
+      "actions": [
+        {
+          "type": "email",
+          "config": {
+            "type": "email",
+            "to": "pandeyharshit673@gmail.com",
+            "subject": "Hi",
+            "body": "Hello"
+          }
+        }
+      ],
+      "status": "active",
+      "registeredAt": "2025-11-07T07:14:55.812Z"
+    },
+    {
+      "id": "zap-1762282933724-rzmnbj276",
+      "trigger": {
+        "type": "webhook",
+        "token": "WETH",
+        "chain": "ethereum"
+      },
+      "actions": [
+        {
+          "type": "email",
+          "config": {
+            "type": "email",
+            "to": "pandeyharshit673@gmail.com",
+            "subject": "Hi",
+            "body": "Hello"
+          }
+        }
+      ],
+      "status": "active",
+      "registeredAt": "2025-11-07T07:14:55.829Z"
+    },
+    {
+      "id": "zap-1762462497456-x91pglnsk",
+      "trigger": {
+        "type": "google_workflow",
+        "workflow": {
+          "name": "Google",
+          "steps": [
+            {
+              "id": "553rls56p",
+              "type": "trigger",
+              "title": "When an email arrives in Gmail",
+              "config": {
+                "type": "gmail",
+                "criteria": "subject",
+                "value": "Hi",
+                "label": "INBOX"
+              }
+            },
+            {
+              "id": "qo4xtd8qp",
+              "type": "sheets",
+              "title": "Add row to Google Sheet",
+              "config": {
+                "spreadsheetId": "1wMp2-Emgb2Pakbkz8G1REcl9G732XP9UqerGAC2rkVA",
+                "sheetName": "Sheet1",
+                "range": "A1",
+                "append": true
+              }
+            },
+            {
+              "id": "1tlrm2pdc",
+              "type": "calendar",
+              "title": "Create Google Calendar event",
+              "config": {
+                "eventTitle": "meet",
+                "eventDescription": "event",
+                "dateField": "2025-11-07",
+                "timeField": "2:30",
+                "duration": 60,
+                "sendNotifications": true
+              }
+            },
+            {
+              "id": "r3kgayt9b",
+              "type": "email",
+              "title": "Send confirmation email",
+              "config": {
+                "to": "pandeyharshit673@gmail.com",
+                "subject": "Event Reminder",
+                "body": "This is a reminder for your upcoming event."
+              }
+            }
+          ]
+        }
+      },
+      "actions": [
+        {
+          "type": "sheets",
+          "config": {
+            "spreadsheetId": "1wMp2-Emgb2Pakbkz8G1REcl9G732XP9UqerGAC2rkVA",
+            "sheetName": "Sheet1",
+            "range": "A1",
+            "append": true
+          }
+        },
+        {
+          "type": "calendar",
+          "config": {
+            "eventTitle": "meet",
+            "eventDescription": "event",
+            "dateField": "2025-11-07",
+            "timeField": "2:30",
+            "duration": 60,
+            "sendNotifications": true
+          }
+        },
+        {
+          "type": "email",
+          "config": {
+            "to": "pandeyharshit673@gmail.com",
+            "subject": "Event Reminder",
+            "body": "This is a reminder for your upcoming event."
+          }
+        }
+      ],
+      "status": "active",
+      "registeredAt": "2025-11-07T07:14:55.845Z"
+    },
+    {
+      "id": "zap-1762499541119-dschdk315",
+      "trigger": {
+        "type": "google_workflow",
+        "workflow": {
+          "name": "Google Smart",
+          "steps": [
+            {
+              "id": "e5vvnk0y0",
+              "type": "trigger",
+              "title": "When an email arrives in Gmail",
+              "config": {
+                "type": "gmail",
+                "criteria": "subject",
+                "value": "Hi",
+                "label": "INBOX"
+              }
+            },
+            {
+              "id": "rr4gpctao",
+              "type": "sheets",
+              "title": "Add row to Google Sheet",
+              "config": {
+                "spreadsheetId": "1wMp2-Emgb2Pakbkz8G1REcl9G732XP9UqerGAC2rkVA",
+                "sheetName": "Sheet1",
+                "range": "A1",
+                "append": true
+              }
+            },
+            {
+              "id": "dsw4h33ah",
+              "type": "calendar",
+              "title": "Create Google Calendar event",
+              "config": {
+                "eventTitle": "Meeting",
+                "eventDescription": "email.body",
+                "dateField": "2025-11-07",
+                "timeField": "12:45",
+                "duration": 60,
+                "sendNotifications": true
+              }
+            },
+            {
+              "id": "9f716u8o7",
+              "type": "email",
+              "title": "Send confirmation email",
+              "config": {
+                "to": "pandeyharshit673@gmail.com",
+                "subject": "Event Reminder",
+                "body": "This is a reminder for your upcoming event."
+              }
+            }
+          ]
+        }
+      },
+      "actions": [
+        {
+          "type": "sheets",
+          "config": {
+            "spreadsheetId": "1wMp2-Emgb2Pakbkz8G1REcl9G732XP9UqerGAC2rkVA",
+            "sheetName": "Sheet1",
+            "range": "A1",
+            "append": true
+          }
+        },
+        {
+          "type": "calendar",
+          "config": {
+            "eventTitle": "Meeting",
+            "eventDescription": "email.body",
+            "dateField": "2025-11-07",
+            "timeField": "12:45",
+            "duration": 60,
+            "sendNotifications": true
+          }
+        },
+        {
+          "type": "email",
+          "config": {
+            "to": "pandeyharshit673@gmail.com",
+            "subject": "Event Reminder",
+            "body": "This is a reminder for your upcoming event."
+          }
+        }
+      ],
+      "status": "active",
+      "registeredAt": "2025-11-07T07:14:55.861Z"
+    }
+  ]
+}
